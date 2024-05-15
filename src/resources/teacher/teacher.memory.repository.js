@@ -2,6 +2,8 @@ const Teacher = require('./teacher.model');
 
 const teachers = [];
 
+exports.teachers = teachers;
+
 exports.getAllTeachers = () => {
   return teachers;
 };
