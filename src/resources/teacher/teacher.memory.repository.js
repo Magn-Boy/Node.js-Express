@@ -1,4 +1,4 @@
-const Teacher = require('./teacher.model');
+const Teacher = require('./teacher.model.js');
 
 const teachers = [];
 

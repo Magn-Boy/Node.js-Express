@@ -1,8 +1,14 @@
-import express from 'express';
+const express = require('express');
 
-import userRouter from './resources/users/user.router.js';
+const userRouter = require('./resources/users/user.router.js');
+const abiturientRouter = require('./resources/abiturient/abiturient.router.js');
+const examRouter = require('./resources/exam/exam.router.js');
+const teacherRouter = require('./resources/teacher/teacher.router.js');
+
+const { PORT } = require('./common/config.js');
 
 const app = express();
+const port = PORT;
 
 app.use(express.json());
 
@@ -15,5 +21,8 @@ app.use('/', (req, res, next) => {
 });
 
 app.use('/users', userRouter);
+app.use('/abiturients', abiturientRouter);
+app.use('/exams', examRouter);
+app.use('/teachers', teacherRouter);
 
-export default app;
+module.exports = app;

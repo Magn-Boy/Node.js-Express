@@ -1,5 +1,5 @@
 const express = require('express');
-const abiturientController = require('./abiturient.controller');
+const abiturientController = require('./abiturient.controller.js');
 const router = express.Router();
 
 router.get('/', abiturientController.getAllAbiturients);

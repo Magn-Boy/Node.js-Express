@@ -1,6 +1,13 @@
-const Abiturient = require('./abiturient.model');
+const abiturientRepository = require('./abiturient.memory.repository');
+const examRepository = require('../exam/exam.memory.repository');
+
+const Abiturient = require('./abiturient.model.js');
 
 const abiturients = [];
+
+exports.getAllAbiturients = () => {
+    return abiturientRepository.getAllAbiturients();
+  };
 
 exports.getAbiturientById = (abiturientId) => {
     return abiturientRepository.getAbiturientById(abiturientId);

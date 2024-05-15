@@ -1,5 +1,5 @@
-const Exam = require('./exam.model');
-const teachers = require('../teacher/teacher.memory.repository').teachers;
+const Exam = require('./exam.model.js');
+const teachers = require('../teacher/teacher.memory.repository.js').teachers;
 
 const exams = [];
 

@@ -7,6 +7,11 @@ class Exam {
       this.date = date;
       this.score = score;
     }
+
+    static toResponse(user) {
+      const { id, abiturientId, teacherId, subject, date, score, login } = user;
+      return { id, abiturientId, teacherId, subject, date, score, login };
+    }
   }
   
   module.exports = Exam;

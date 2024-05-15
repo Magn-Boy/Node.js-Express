@@ -5,6 +5,11 @@ class Teacher {
       this.firstName = firstName;
       this.degree = degree;
     }
+
+    static toResponse(user) {
+      const { id, lastName, firstName, degree, login } = user;
+      return { id, lastName, firstName, degree, login };
+    }
   }
   
   module.exports = Teacher;

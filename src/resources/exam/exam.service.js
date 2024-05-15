@@ -1,6 +1,8 @@
-const Exam = require('./exam.model');
+const examRepository = require('./exam.memory.repository.js');
 
-const exams = [];
+exports.getAllExams = () => {
+    return examRepository.getAllExams();
+  };
 
 exports.getExamById = (examId) => {
     return examRepository.getExamById(examId);

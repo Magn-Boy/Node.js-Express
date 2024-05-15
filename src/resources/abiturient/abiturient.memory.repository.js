@@ -1,4 +1,4 @@
-const Abiturient = require('./abiturient.model');
+const Abiturient = require('./abiturient.model.js');
 
 const abiturients = [];
 
