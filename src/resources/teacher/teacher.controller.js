@@ -48,7 +48,11 @@ exports.updateTeacher = (req, res) => {
         const teacherId = req.params.teacherId;
         const updatedTeacherData = req.body;
         const updatedTeacher = teacherService.updateTeacher(teacherId, updatedTeacherData);
-        res.status(200).json(updatedTeacher);
+        if(updatedTeacher) {
+          res.status(200).json(updatedTeacher);
+        } else {
+          res.status(404).json({message: "Teacher not found"});
+        }
       } catch (error) {
         res.status(500).json({ error: error.message });
       }
