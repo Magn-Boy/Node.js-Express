@@ -6,13 +6,13 @@ export const getAllExams = (req: Request, res: Response): void => {
         const exams = examService.getAllExams();
         res.status(200).json(exams);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error instanceof Error ? error.message : 'Unknown error' });
       }
 };
 
 export const getExamById = (req: Request, res: Response): void => {
     try {
-        const { examId } = req.params;
+        const { examId } = req.params as { examId: string};
         const exam = examService.getExamById(examId);
         if (!exam) {
           res.status(404).json({ message: "Exam not found" });
@@ -20,17 +20,19 @@ export const getExamById = (req: Request, res: Response): void => {
           res.status(200).json(exam);
         }
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };
 
 export const getExamTeachers = (req: Request, res: Response): void => {
     try {
-        const { examId } = req.params;
+        const { examId } = req.params as {examId: string};
         const teachers = examService.getExamTeachers(examId);
         res.status(200).json(teachers);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };
 
@@ -40,27 +42,30 @@ export const createExam = (req: Request, res: Response): void => {
         const createdExam = examService.createExam(examData);
         res.status(201).json(createdExam);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };
 
 export const updateExam = (req: Request, res: Response): void => {
     try {
-        const { examId } = req.params;
+        const { examId } = req.params as {examId: string};
         const updatedExamData = req.body;
         const updatedExam = examService.updateExam(examId, updatedExamData);
         res.status(200).json(updatedExam);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };
 
 export const deleteExam = (req: Request, res: Response): void => {
     try {
-        const { examId } = req.params;
+        const { examId } = req.params as {examId: string};
         examService.deleteExam(examId);
         res.status(204).end();
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };

@@ -1,7 +1,7 @@
 class Exam {
   id: string;
-  abiturientId: string;
-  teacherId: string;
+  abiturientId: string | null;
+  teacherId: string | null;
   subject: string;
   date: string;
   score: number;

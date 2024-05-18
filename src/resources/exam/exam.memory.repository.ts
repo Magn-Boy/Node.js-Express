@@ -32,21 +32,23 @@ export const createExam = (examData: Partial<Exam>): Exam => {
   return newExam;
 };
 
-export const updateExam = (examId: string, updatedExamData: Partial<Exam>): Exam | null => {
+export const updateExam = (examId: string, updatedExamData: Exam): boolean => {
   const index = exams.findIndex(exam => exam.id === examId);
   if (index !== -1) {
-    exams[index] = { ...exams[index], ...updatedExamData };
-    return exams[index];
+    exams[index] = updatedExamData;
+    return true;
   }
-  return null;
+  return false;
 };
 
-export const deleteExam = (examId: string): Exam | null => {
+export const deleteExam = (examId: string): boolean => {
   const index = exams.findIndex(exam => exam.id === examId);
   if (index !== -1) {
-    return exams.splice(index, 1)[0];
+    exams.splice(index, 1)[0];
+    return true;
+
   }
-  return null;
+  return false;
 };
 
 export const updateExamsAbiturientIdToNull = (abiturientId: string): void => {
@@ -54,7 +56,7 @@ export const updateExamsAbiturientIdToNull = (abiturientId: string): void => {
       if (exam.abiturientId === abiturientId) {
         exam.abiturientId = null;
         if (!exam.teacherId) {
-          exports.deleteExam(exam.id);
+          deleteExam(exam.id);
         }
       }
     });
@@ -65,7 +67,7 @@ export const updateExamsAbiturientIdToNull = (abiturientId: string): void => {
       if (exam.teacherId === teacherId) {
         exam.teacherId = null;
         if (!exam.abiturientId) {
-          exports.deleteExam(exam.id);
+          deleteExam(exam.id);
         }
       }
     });

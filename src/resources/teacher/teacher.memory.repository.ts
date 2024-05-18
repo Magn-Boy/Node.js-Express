@@ -1,37 +1,40 @@
-const Teacher = require('./teacher.model.js');
+import Teacher from './teacher.model';
 
-const teachers = [];
+export const teachers: Teacher[] = [];
 
-exports.teachers = teachers;
+export const getAllTeachers = (): Teacher[] => {
+  return teachers;
+}
 
-exports.getAllTeachers = () => teachers;
+export const getTeacherById = (teacherId: string ): Teacher | undefined => {
+  return teachers.find(teacher => teacher.id === teacherId);
+}
 
-exports.getTeacherById = (teacherId) => teachers.find(teacher => teacher.id === teacherId);
-
-exports.createTeacher = (teacherData) => {
+export const createTeacher = (teacherData: Partial<Teacher>): Teacher => {
   const newTeacher = new Teacher(
-    teacherData.id,
-    teacherData.lastName,
-    teacherData.firstName,
-    teacherData.degree
+    teacherData.id || '',
+    teacherData.lastName || '',
+    teacherData.firstName || '',
+    teacherData.degree || ''
   );
   teachers.push(newTeacher);
   return newTeacher;
 };
 
-exports.updateTeacher = (teacherId, updatedTeacherData) => {
+export const updateTeacher = (teacherId: string, updatedTeacherData: Teacher): boolean => {
   const index = teachers.findIndex(teacher => teacher.id === teacherId);
   if (index !== -1) {
-    teachers[index] = { ...teachers[index], ...updatedTeacherData };
-    return teachers[index];
+    teachers[index] =  updatedTeacherData;
+    return true;
   }
-  return null;
+  return false;
 };
 
-exports.deleteTeacher = (teacherId) => {
+export const deleteTeacher = (teacherId: string): boolean => {
   const index = teachers.findIndex(teacher => teacher.id === teacherId);
   if (index !== -1) {
-    return teachers.splice(index, 1)[0];
+    teachers.splice(index, 1)[0];
+    return true;
   }
-  return null;
+  return false;
 };

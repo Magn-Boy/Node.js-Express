@@ -7,7 +7,7 @@ export const getAllAbiturients = (): Abiturient[] => {
     return abiturientRepository.getAllAbiturients();
 }
 
-export const getAbiturientById = (abiturientId: string): Abiturient | undefined =>{
+export const getAbiturientById = (abiturientId: string): Abiturient | null =>{
     return abiturientRepository.getAbiturientById(abiturientId);
 } 
 
@@ -19,10 +19,10 @@ export const createAbiturient = (abiturientData: Partial<Abiturient>): Abiturien
     return abiturientRepository.createAbiturient(abiturientData);
 } 
 
-export const updateAbiturient = (abiturientId: string, updatedAbiturientData: Partial<Abiturient>): Abiturient | null => {
+export const updateAbiturient = (abiturientId: string, updatedAbiturientData: Abiturient): boolean => {
     return abiturientRepository.updateAbiturient(abiturientId, updatedAbiturientData);
 } 
 
-export const deleteAbiturient = (abiturientId: string): Abiturient | null => {
+export const deleteAbiturient = (abiturientId: string): boolean => {
     return abiturientRepository.deleteAbiturient(abiturientId);
 }

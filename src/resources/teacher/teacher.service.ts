@@ -19,10 +19,10 @@ export const createTeacher = (teacherData: Partial<Teacher>): Teacher => {
     return teacherRepository.createTeacher(teacherData);
 } 
 
-export const updateTeacher = (teacherId: string, updatedTeacherData: Partial<Teacher>): Teacher | null => {
+export const updateTeacher = (teacherId: string, updatedTeacherData: Teacher): boolean => {
     return teacherRepository.updateTeacher(teacherId, updatedTeacherData);
 } 
 
-export const deleteTeacher = (teacherId: string ): Teacher | null => {
+export const deleteTeacher = (teacherId: string ): boolean => {
     return teacherRepository.deleteTeacher(teacherId);
 } 

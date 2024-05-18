@@ -6,13 +6,13 @@ export const getAllAbiturients = (req: Request, res: Response): void => {
         const abiturients = abiturientService.getAllAbiturients();
         res.status(200).json(abiturients);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error instanceof Error ? error.message : 'Unknown error'});
       }
 };
 
-export const getAbiturientById = (req: Response, res: Response): void => {
+export const getAbiturientById = (req: Request, res: Response): void => {
     try {
-        const { abiturientId } = req.params;
+        const { abiturientId } = req.params as { abiturientId: string };
         const abiturient = abiturientService.getAbiturientById(abiturientId);
         if (!abiturient) {
           res.status(404).json({ message: "Abiturient not found" });
@@ -20,17 +20,19 @@ export const getAbiturientById = (req: Response, res: Response): void => {
           res.status(200).json(abiturient);
         }
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };
 
-export const getAbiturientExams = (req: Response, res: Response): void => {
+export const getAbiturientExams = (req: Request, res: Response): void => {
     try {
-        const abiturientId = req.params.abiturientId;
+        const { abiturientId } = req.params as { abiturientId: string };
         const exams = abiturientService.getAbiturientExams(abiturientId);
         res.status(200).json(exams);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };
 
@@ -40,27 +42,30 @@ export const createAbiturient = (req: Request, res: Response): void => {
         const createdAbiturient = abiturientService.createAbiturient(abiturientData);
         res.status(201).json(createdAbiturient);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };
 
 export const updateAbiturient = (req: Request, res: Response): void => {
     try {
-        const { abiturientId } = req.params;
+        const { abiturientId } = req.params as { abiturientId: string };
         const updatedAbiturientData = req.body;
         const updatedAbiturient = abiturientService.updateAbiturient(abiturientId, updatedAbiturientData);
         res.status(200).json(updatedAbiturient);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };
 
 export const deleteAbiturient = (req: Request, res: Response): void => {
     try {
-        const {abiturientId } = req.params;
+        const {abiturientId } = req.params as { abiturientId: string };
         abiturientService.deleteAbiturient(abiturientId);
         res.status(204).end();
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
+        res.status(500).json({ error: errorMessage });
       }
 };
