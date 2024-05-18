@@ -12,7 +12,7 @@ export const getAllAbiturients = (req: Request, res: Response): void => {
 
 export const getAbiturientById = (req: Response, res: Response): void => {
     try {
-        const abiturientId = req.params.abiturientId;
+        const { abiturientId } = req.params;
         const abiturient = abiturientService.getAbiturientById(abiturientId);
         if (!abiturient) {
           res.status(404).json({ message: "Abiturient not found" });
@@ -46,7 +46,7 @@ export const createAbiturient = (req: Request, res: Response): void => {
 
 export const updateAbiturient = (req: Request, res: Response): void => {
     try {
-        const abiturientId = req.params.abiturientId;
+        const { abiturientId } = req.params;
         const updatedAbiturientData = req.body;
         const updatedAbiturient = abiturientService.updateAbiturient(abiturientId, updatedAbiturientData);
         res.status(200).json(updatedAbiturient);
@@ -57,7 +57,7 @@ export const updateAbiturient = (req: Request, res: Response): void => {
 
 export const deleteAbiturient = (req: Request, res: Response): void => {
     try {
-        const abiturientId = req.params.abiturientId;
+        const {abiturientId } = req.params;
         abiturientService.deleteAbiturient(abiturientId);
         res.status(204).end();
       } catch (error) {

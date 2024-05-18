@@ -7,7 +7,7 @@ export const getAllAbiturients = (): Abiturient[] => {
 } 
 
 export const getAbiturientById = (abiturientId: string): Abiturient | undefined => {
-  retrun abiturients.find(abiturient => abiturient.id === abiturientId);
+  return abiturients.find(abiturient => abiturient.id === abiturientId);
 } 
 
 export const createAbiturient = (abiturientData: Partial<Abiturient>): Abiturient => {

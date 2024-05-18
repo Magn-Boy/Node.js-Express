@@ -55,7 +55,7 @@ export const updateExam = (req: Request, res: Response): void => {
       }
 };
 
-export cosnt deleteExam = (req: Request, res: Response): void => {
+export const deleteExam = (req: Request, res: Response): void => {
     try {
         const { examId } = req.params;
         examService.deleteExam(examId);

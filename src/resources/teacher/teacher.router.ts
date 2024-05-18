@@ -1,5 +1,5 @@
-const express = require('express');
-const teacherController = require('./teacher.controller.js');
+import express from 'express';
+import * as teacherController from './teacher.controller';
 
 const router = express.Router();
 
@@ -10,4 +10,4 @@ router.post('/', teacherController.createTeacher);
 router.put('/:teacherId', teacherController.updateTeacher);
 router.delete('/:teacherId', teacherController.deleteTeacher);
 
-module.exports = router;
+export default router;

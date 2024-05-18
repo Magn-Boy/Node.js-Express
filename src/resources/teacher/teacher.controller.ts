@@ -1,6 +1,7 @@
-const teacherService = require('./teacher.service.js');
+import { Request, Response } from 'express';
+import * as teacherService from './teacher.service';
 
-exports.getAllTeachers = (req, res) => {
+export const getAllTeachers = (req: Request, res: Response): void => {
     try {
         const teachers = teacherService.getAllTeachers();
         res.status(200).json(teachers);
@@ -9,7 +10,7 @@ exports.getAllTeachers = (req, res) => {
       }
 };
 
-exports.getTeacherById = (req, res) => {
+export const getTeacherById = (req: Request, res: Response): void => {
     try {
         const {teacherId} = req.params;
         const teacher = teacherService.getTeacherById(teacherId);
@@ -23,7 +24,7 @@ exports.getTeacherById = (req, res) => {
       }
 };
 
-exports.getTeacherExams = (req, res) => {
+export const getTeacherExams = (req: Request, res: Response): void  => {
     try {
         const {teacherId} = req.params;
         const exams = teacherService.getTeacherExams(teacherId);
@@ -33,7 +34,7 @@ exports.getTeacherExams = (req, res) => {
       }
 };
 
-exports.createTeacher = (req, res) => {
+export const createTeacher = (req: Request, res: Response): void => {
     try {
         const teacherData = req.body;
         const createdTeacher = teacherService.createTeacher(teacherData);
@@ -43,7 +44,7 @@ exports.createTeacher = (req, res) => {
       }
 };
 
-exports.updateTeacher = (req, res) => {
+export const updateTeacher = (req: Request, res: Response): void => {
     try {
         const {teacherId} = req.params;
         const updatedTeacherData = req.body;
@@ -58,7 +59,7 @@ exports.updateTeacher = (req, res) => {
       }
 };
 
-exports.deleteTeacher = (req, res) => {
+export const deleteTeacher = (req: Request, res: Response): void => {
     try {
         const {teacherId} = req.params;
         teacherService.deleteTeacher(teacherId);

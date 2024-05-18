@@ -1,5 +1,5 @@
-const getAll = async () =>
+const getAll = async (): Promise<any[]> =>
   // TODO: mock implementation. should be replaced during task development
   [];
 
-module.exports = { getAll };
+export { getAll };

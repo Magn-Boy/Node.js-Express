@@ -1,9 +1,9 @@
 import Exam from "./exam.model";
-import * as examRepository form './exam.memory.repository';
+import * as examRepository from './exam.memory.repository';
 
 export const getAllExams = (): Exam[] => examRepository.getAllExams();
 
-exports const getExamById = (examId: string): Exam | undefined => examRepository.getExamById(examId);
+export const getExamById = (examId: string): Exam | undefined => examRepository.getExamById(examId);
 
 export const getExamTeachers = (examId: string): unknow[] | null => examRepository.getTeachersByExamId(examId);
 

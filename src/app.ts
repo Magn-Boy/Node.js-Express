@@ -4,7 +4,6 @@ import userRouter from './resources/users/user.router';
 import abiturientRouter from './resources/abiturient/abiturient.router';
 import examRouter from'./resources/exam/exam.router';
 import teacherRouter from'./resources/teacher/teacher.router';
-
 import { PORT } from './common/config';
 
 const app = express();
