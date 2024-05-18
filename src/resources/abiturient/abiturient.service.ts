@@ -16,7 +16,7 @@ export const getAbiturientExams = (abiturientId: string): unknown[] => {
 } 
 
 export const createAbiturient = (abiturientData: Partial<Abiturient>): Abiturient => {
-    retrun abiturientRepository.createAbiturient(abiturientData);
+    return abiturientRepository.createAbiturient(abiturientData);
 } 
 
 export const updateAbiturient = (abiturientId: string, updatedAbiturientData: Partial<Abiturient>): Abiturient | null => {

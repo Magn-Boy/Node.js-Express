@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as  abiturientService from './abiturient.service.js';
+import * as  abiturientService from './abiturient.service';
 
 export const getAllAbiturients = (req: Request, res: Response): void => {
     try {

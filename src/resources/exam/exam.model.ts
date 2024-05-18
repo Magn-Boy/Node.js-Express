@@ -1,5 +1,13 @@
 class Exam {
-    constructor(id, abiturientId, teacherId, subject, date, score) {
+  id: string;
+  abiturientId: string;
+  teacherId: string;
+  subject: string;
+  date: string;
+  score: number;
+  login?: string;
+
+    constructor(id: string, abiturientId: string, teacherId: string, subject: string, date: string, score: number) {
       this.id = id;
       this.abiturientId = abiturientId;
       this.teacherId = teacherId;
@@ -8,11 +16,11 @@ class Exam {
       this.score = score;
     }
 
-    static toResponse(user) {
+    static toResponse(user: Exam): Partial<Exam> {
       const { id, abiturientId, teacherId, subject, date, score, login } = user;
       return { id, abiturientId, teacherId, subject, date, score, login };
     }
   }
   
-  module.exports = Exam;
+  export default Exam;
   

@@ -5,7 +5,7 @@
     "type": "git",
     "url": ""
   },
-  "type": "commonjs",
+  "type": "module",
   "description": "nodejs-mitso",
   "main": "src/server.js",
   "scripts": {
@@ -46,6 +46,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/node": "^20.12.12",
     "debug": "^4.3.1",
     "eslint": "^7.32.0",

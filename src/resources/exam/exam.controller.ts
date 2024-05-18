@@ -1,6 +1,7 @@
-const examService = require('./exam.service.js');
+import { Request, Response } from 'express';
+import * as examService from './exam.service';
 
-exports.getAllExams = (req, res) => {
+export const getAllExams = (req: Request, res: Response): void => {
     try {
         const exams = examService.getAllExams();
         res.status(200).json(exams);
@@ -9,9 +10,9 @@ exports.getAllExams = (req, res) => {
       }
 };
 
-exports.getExamById = (req, res) => {
+export const getExamById = (req: Request, res: Response): void => {
     try {
-        const {examId} = req.params;
+        const { examId } = req.params;
         const exam = examService.getExamById(examId);
         if (!exam) {
           res.status(404).json({ message: "Exam not found" });
@@ -23,9 +24,9 @@ exports.getExamById = (req, res) => {
       }
 };
 
-exports.getExamTeachers = (req, res) => {
+export const getExamTeachers = (req: Request, res: Response): void => {
     try {
-        const {examId} = req.params;
+        const { examId } = req.params;
         const teachers = examService.getExamTeachers(examId);
         res.status(200).json(teachers);
       } catch (error) {
@@ -33,7 +34,7 @@ exports.getExamTeachers = (req, res) => {
       }
 };
 
-exports.createExam = (req, res) => {
+export const createExam = (req: Request, res: Response): void => {
     try {
         const examData = req.body;
         const createdExam = examService.createExam(examData);
@@ -43,9 +44,9 @@ exports.createExam = (req, res) => {
       }
 };
 
-exports.updateExam = (req, res) => {
+export const updateExam = (req: Request, res: Response): void => {
     try {
-        const {examId} = req.params;
+        const { examId } = req.params;
         const updatedExamData = req.body;
         const updatedExam = examService.updateExam(examId, updatedExamData);
         res.status(200).json(updatedExam);
@@ -54,9 +55,9 @@ exports.updateExam = (req, res) => {
       }
 };
 
-exports.deleteExam = (req, res) => {
+export cosnt deleteExam = (req: Request, res: Response): void => {
     try {
-        const {examId} = req.params;
+        const { examId } = req.params;
         examService.deleteExam(examId);
         res.status(204).end();
       } catch (error) {
