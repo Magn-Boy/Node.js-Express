@@ -1,8 +1,12 @@
 class Abiturient {
   id: number;
+
   lastName: string;
+
   firstName: string;
+
   numCertificate: number;
+
   login?: string;
 
     constructor(id: number, lastName: string, firstName: string, numCertificate: number) {

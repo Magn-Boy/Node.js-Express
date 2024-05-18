@@ -1,4 +1,4 @@
-import Exam from "./exam.model";
+import Exam from './exam.model';
 import * as examRepository from './exam.memory.repository';
 
 export const getAllExams = (): Exam[] => examRepository.getAllExams();

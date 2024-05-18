@@ -13,7 +13,7 @@ export const getAllExams = (_req: Request, res: Response): void => {
 export const getExamById = (req: Request, res: Response): void => {
     try {
         const { examId } = req.params as { examId: string};
-        const exam = examService.getExamById(examId);
+        const exam = examService.getExamById(parseInt(examId, 10));
         if (!exam) {
           res.status(404).json({ message: "Exam not found" });
         } else {
@@ -28,7 +28,7 @@ export const getExamById = (req: Request, res: Response): void => {
 export const getExamTeachers = (req: Request, res: Response): void => {
     try {
         const { examId } = req.params as {examId: string};
-        const teachers = examService.getExamTeachers(examId);
+        const teachers = examService.getExamTeachers(parseInt(examId, 10));
         res.status(200).json(teachers);
       } catch (error) {
         const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
@@ -51,7 +51,7 @@ export const updateExam = (req: Request, res: Response): void => {
     try {
         const { examId } = req.params as {examId: string};
         const updatedExamData = req.body;
-        const updatedExam = examService.updateExam(examId, updatedExamData);
+        const updatedExam = examService.updateExam(parseInt(examId, 10), updatedExamData);
         res.status(200).json(updatedExam);
       } catch (error) {
         const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
@@ -62,7 +62,7 @@ export const updateExam = (req: Request, res: Response): void => {
 export const deleteExam = (req: Request, res: Response): void => {
     try {
         const { examId } = req.params as {examId: string};
-        examService.deleteExam(examId);
+        examService.deleteExam(parseInt(examId, 10));
         res.status(204).end();
       } catch (error) {
         const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';

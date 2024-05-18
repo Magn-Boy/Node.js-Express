@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 class Abiturient {
     id;
     lastName;
@@ -17,5 +15,5 @@ class Abiturient {
         return { id, lastName, firstName, numCertificate, login };
     }
 }
-exports.default = Abiturient;
+export default Abiturient;
 //# sourceMappingURL=abiturient.model.js.map

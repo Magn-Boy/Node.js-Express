@@ -1,22 +1,21 @@
+// eslint-disable-next-line no-unused-vars
 import Abiturient from './abiturient.model';
 
 const abiturients: Abiturient[] = [];
 
-export const getAllAbiturients = (): Abiturient[] => {
-  return abiturients;
-} 
+export const getAllAbiturients = (): Abiturient[] => abiturients;
 
 export const getAbiturientById = (abiturientId: number): Abiturient | null => {
   const foundAbiturient = abiturients.find(abiturient => abiturient.id === abiturientId);
   return foundAbiturient || null;
-} 
+};
 
 export const createAbiturient = (abiturientData: Partial<Abiturient>): Abiturient => {
   const newAbiturient = new Abiturient(
     abiturientData.id || 0,
     abiturientData.lastName || '',
     abiturientData.firstName || '',
-    abiturientData.numCertificate || ''
+    abiturientData.numCertificate || 0
   );
   abiturients.push(newAbiturient);
   return newAbiturient;

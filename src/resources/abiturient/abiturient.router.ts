@@ -1,13 +1,13 @@
 import express from 'express';
-import * as abiturientController from'./abiturient.controller';
+import { getAllAbiturients, getAbiturientExams, getAbiturientById, createAbiturient, updateAbiturient, deleteAbiturient } from './abiturient.controller';
 
 const router = express.Router();
 
-router.get('/', abiturientController.getAllAbiturients);
-router.get('/:abiturientId', abiturientController.getAbiturientById);
-router.get('/:abiturientId/exams', abiturientController.getAbiturientExams);
-router.post('/', abiturientController.createAbiturient);
-router.put('/:abiturientId', abiturientController.updateAbiturient);
-router.delete('/:abiturientId', abiturientController.deleteAbiturient);
+router.get('/', getAllAbiturients);
+router.get('/:abiturientId', getAbiturientById);
+router.get('/:abiturientId/exams', getAbiturientExams);
+router.post('/', createAbiturient);
+router.put('/:abiturientId', updateAbiturient);
+router.delete('/:abiturientId', deleteAbiturient);
 
 export default router;

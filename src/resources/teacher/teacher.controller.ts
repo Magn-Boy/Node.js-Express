@@ -13,7 +13,7 @@ export const getAllTeachers = (_req: Request, res: Response): void => {
 export const getTeacherById = (req: Request, res: Response): void => {
     try {
         const {teacherId} = req.params as {teacherId: string};
-        const teacher = teacherService.getTeacherById(teacherId);
+        const teacher = teacherService.getTeacherById(parseInt(teacherId, 5));
         if (!teacher) {
           res.status(404).json({ message: "Teacher not found" });
         } else {
@@ -28,7 +28,7 @@ export const getTeacherById = (req: Request, res: Response): void => {
 export const getTeacherExams = (req: Request, res: Response): void  => {
     try {
         const {teacherId} = req.params as {teacherId: string};
-        const exams = teacherService.getTeacherExams(teacherId);
+        const exams = teacherService.getTeacherExams(parseInt(teacherId, 5));
         res.status(200).json(exams);
       } catch (error) {
         const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
@@ -51,7 +51,7 @@ export const updateTeacher = (req: Request, res: Response): void => {
     try {
         const {teacherId} = req.params as {teacherId: string};
         const updatedTeacherData = req.body;
-        const updatedTeacher = teacherService.updateTeacher(teacherId, updatedTeacherData);
+        const updatedTeacher = teacherService.updateTeacher(parseInt(teacherId, 5), updatedTeacherData);
         if(updatedTeacher) {
           res.status(200).json(updatedTeacher);
         } else {
@@ -66,7 +66,7 @@ export const updateTeacher = (req: Request, res: Response): void => {
 export const deleteTeacher = (req: Request, res: Response): void => {
     try {
         const {teacherId} = req.params as {teacherId: string};
-        teacherService.deleteTeacher(teacherId);
+        teacherService.deleteTeacher(parseInt(teacherId, 5));
         res.status(204).end();
       } catch (error) {
         const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';

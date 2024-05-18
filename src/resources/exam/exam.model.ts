@@ -1,10 +1,16 @@
 class Exam {
   id: number;
+
   abiturientId: number | null;
+
   teacherId: number | null;
+
   subject: string;
+
   date: string;
+
   score: number;
+
   login?: string;
 
     constructor(id: number, abiturientId: number, teacherId: number, subject: string, date: string, score: number) {

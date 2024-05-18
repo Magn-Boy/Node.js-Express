@@ -1,11 +1,15 @@
 class Teacher {
-  id: string;
+  id: number;
+
   lastName: string;
+
   firstName: string;
+
   degree: string;
+
   login?: string;
 
-    constructor(id: string, lastName: string, firstName: string, degree: string) {
+    constructor(id: number, lastName: string, firstName: string, degree: string) {
       this.id = id;
       this.lastName = lastName;
       this.firstName = firstName;
