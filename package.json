@@ -5,7 +5,7 @@
     "type": "git",
     "url": ""
   },
-  "type": "module",
+  "type": "commonjs",
   "description": "nodejs-mitso",
   "main": "src/server.js",
   "scripts": {

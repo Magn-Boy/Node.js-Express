@@ -1,11 +1,11 @@
 class Abiturient {
-  id: string;
+  id: number;
   lastName: string;
   firstName: string;
-  numCertificate: string;
+  numCertificate: number;
   login?: string;
 
-    constructor(id: string, lastName: string, firstName: string, numCertificate: string) {
+    constructor(id: number, lastName: string, firstName: string, numCertificate: number) {
       this.id = id;
       this.lastName = lastName;
       this.firstName = firstName;

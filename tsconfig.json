@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-      "target": "ES2022",
-      "module": "ESNext",
+      "target": "ESNext",
+      "module": "CommonJS",
       "allowJs": false,
       "sourceMap": true,
       "baseUrl": "/home/secure/Proga/Node.js-Express/src",

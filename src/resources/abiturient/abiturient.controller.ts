@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import * as  abiturientService from './abiturient.service';
 
-export const getAllAbiturients = (req: Request, res: Response): void => {
+export const getAllAbiturients = (_req: Request, res: Response): void => {
     try {
         const abiturients = abiturientService.getAllAbiturients();
         res.status(200).json(abiturients);
@@ -13,7 +13,7 @@ export const getAllAbiturients = (req: Request, res: Response): void => {
 export const getAbiturientById = (req: Request, res: Response): void => {
     try {
         const { abiturientId } = req.params as { abiturientId: string };
-        const abiturient = abiturientService.getAbiturientById(abiturientId);
+        const abiturient = abiturientService.getAbiturientById(parseInt(abiturientId));
         if (!abiturient) {
           res.status(404).json({ message: "Abiturient not found" });
         } else {
@@ -28,7 +28,7 @@ export const getAbiturientById = (req: Request, res: Response): void => {
 export const getAbiturientExams = (req: Request, res: Response): void => {
     try {
         const { abiturientId } = req.params as { abiturientId: string };
-        const exams = abiturientService.getAbiturientExams(abiturientId);
+        const exams = abiturientService.getAbiturientExams(parseInt(abiturientId));
         res.status(200).json(exams);
       } catch (error) {
         const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
@@ -51,7 +51,7 @@ export const updateAbiturient = (req: Request, res: Response): void => {
     try {
         const { abiturientId } = req.params as { abiturientId: string };
         const updatedAbiturientData = req.body;
-        const updatedAbiturient = abiturientService.updateAbiturient(abiturientId, updatedAbiturientData);
+        const updatedAbiturient = abiturientService.updateAbiturient(parseInt(abiturientId), updatedAbiturientData);
         res.status(200).json(updatedAbiturient);
       } catch (error) {
         const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';
@@ -62,7 +62,7 @@ export const updateAbiturient = (req: Request, res: Response): void => {
 export const deleteAbiturient = (req: Request, res: Response): void => {
     try {
         const {abiturientId } = req.params as { abiturientId: string };
-        abiturientService.deleteAbiturient(abiturientId);
+        abiturientService.deleteAbiturient(parseInt(abiturientId));
         res.status(204).end();
       } catch (error) {
         const errorMessage: string = error instanceof Error ? error.message : 'Unknown error';

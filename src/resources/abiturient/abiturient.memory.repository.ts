@@ -6,14 +6,14 @@ export const getAllAbiturients = (): Abiturient[] => {
   return abiturients;
 } 
 
-export const getAbiturientById = (abiturientId: string): Abiturient | null => {
+export const getAbiturientById = (abiturientId: number): Abiturient | null => {
   const foundAbiturient = abiturients.find(abiturient => abiturient.id === abiturientId);
   return foundAbiturient || null;
 } 
 
 export const createAbiturient = (abiturientData: Partial<Abiturient>): Abiturient => {
   const newAbiturient = new Abiturient(
-    abiturientData.id || '',
+    abiturientData.id || 0,
     abiturientData.lastName || '',
     abiturientData.firstName || '',
     abiturientData.numCertificate || ''
@@ -22,7 +22,7 @@ export const createAbiturient = (abiturientData: Partial<Abiturient>): Abiturien
   return newAbiturient;
 };
 
-export const updateAbiturient = (abiturientId: string, updatedAbiturientData: Abiturient): boolean => {
+export const updateAbiturient = (abiturientId: number, updatedAbiturientData: Abiturient): boolean => {
   const index = abiturients.findIndex(abiturient => abiturient.id === abiturientId);
   if (index !== -1) {
     abiturients[index] = updatedAbiturientData;
@@ -31,7 +31,7 @@ export const updateAbiturient = (abiturientId: string, updatedAbiturientData: Ab
   return false;
 };
 
-export const deleteAbiturient = (abiturientId: string): boolean => {
+export const deleteAbiturient = (abiturientId: number): boolean => {
   const index = abiturients.findIndex(abiturient => abiturient.id === abiturientId);
   if (index !== -1) {
     abiturients.splice(index, 1)[0];

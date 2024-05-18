@@ -1,13 +1,13 @@
 class Exam {
-  id: string;
-  abiturientId: string | null;
-  teacherId: string | null;
+  id: number;
+  abiturientId: number | null;
+  teacherId: number | null;
   subject: string;
   date: string;
   score: number;
   login?: string;
 
-    constructor(id: string, abiturientId: string, teacherId: string, subject: string, date: string, score: number) {
+    constructor(id: number, abiturientId: number, teacherId: number, subject: string, date: string, score: number) {
       this.id = id;
       this.abiturientId = abiturientId;
       this.teacherId = teacherId;

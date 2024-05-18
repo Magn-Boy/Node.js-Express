@@ -5,13 +5,13 @@ const exams: Exam[] = [];
 
 export const getAllExams = (): Exam[] => exams;
 
-export const getExamById = (examId: string): Exam | undefined => exams.find(exam => exam.id === examId);
+export const getExamById = (examId: number): Exam | undefined => exams.find(exam => exam.id === examId);
 
-export const getExamsByAbiturientId = (abiturientId: string): Exam[] => exams.filter(exam => exam.abiturientId === abiturientId);
+export const getExamsByAbiturientId = (abiturientId: number): Exam[] => exams.filter(exam => exam.abiturientId === abiturientId);
   
-export const getExamsByTeacherId = (teacherId: string): Exam[] => exams.filter(exam => exam.teacherId === teacherId);
+export const getExamsByTeacherId = (teacherId: number): Exam[] => exams.filter(exam => exam.teacherId === teacherId);
 
-export const getTeachersByExamId = (examId: string): unknown[] | null => {
+export const getTeachersByExamId = (examId: number): unknown[] | null => {
     const exam = exams.find(exam => exam.id === examId);
     if (!exam) {
       return null;
@@ -21,9 +21,9 @@ export const getTeachersByExamId = (examId: string): unknown[] | null => {
 
 export const createExam = (examData: Partial<Exam>): Exam => {
   const newExam = new Exam(
-    examData.id || '',
-    examData.abiturientId || '',
-    examData.teacherId || '',
+    examData.id || 0,
+    examData.abiturientId || 0,
+    examData.teacherId || 0,
     examData.subject || '',
     examData.date || '',
     examData.score || 0
@@ -32,7 +32,7 @@ export const createExam = (examData: Partial<Exam>): Exam => {
   return newExam;
 };
 
-export const updateExam = (examId: string, updatedExamData: Exam): boolean => {
+export const updateExam = (examId: number, updatedExamData: Exam): boolean => {
   const index = exams.findIndex(exam => exam.id === examId);
   if (index !== -1) {
     exams[index] = updatedExamData;
@@ -41,7 +41,7 @@ export const updateExam = (examId: string, updatedExamData: Exam): boolean => {
   return false;
 };
 
-export const deleteExam = (examId: string): boolean => {
+export const deleteExam = (examId: number): boolean => {
   const index = exams.findIndex(exam => exam.id === examId);
   if (index !== -1) {
     exams.splice(index, 1)[0];
@@ -51,7 +51,7 @@ export const deleteExam = (examId: string): boolean => {
   return false;
 };
 
-export const updateExamsAbiturientIdToNull = (abiturientId: string): void => {
+export const updateExamsAbiturientIdToNull = (abiturientId: number): void => {
     exams.forEach(exam => {
       if (exam.abiturientId === abiturientId) {
         exam.abiturientId = null;
@@ -62,7 +62,7 @@ export const updateExamsAbiturientIdToNull = (abiturientId: string): void => {
     });
   };
   
-  export const updateExamsTeacherIdToNull = (teacherId: string): void  => {
+  export const updateExamsTeacherIdToNull = (teacherId: number): void  => {
     exams.forEach(exam => {
       if (exam.teacherId === teacherId) {
         exam.teacherId = null;

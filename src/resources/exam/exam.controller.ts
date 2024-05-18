@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import * as examService from './exam.service';
 
-export const getAllExams = (req: Request, res: Response): void => {
+export const getAllExams = (_req: Request, res: Response): void => {
     try {
         const exams = examService.getAllExams();
         res.status(200).json(exams);

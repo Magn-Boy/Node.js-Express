@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import * as teacherService from './teacher.service';
 
-export const getAllTeachers = (req: Request, res: Response): void => {
+export const getAllTeachers = (_req: Request, res: Response): void => {
     try {
         const teachers = teacherService.getAllTeachers();
         res.status(200).json(teachers);
