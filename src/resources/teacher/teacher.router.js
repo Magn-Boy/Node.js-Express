@@ -1,5 +1,6 @@
 const express = require('express');
 const teacherController = require('./teacher.controller.js');
+
 const router = express.Router();
 
 router.get('/', teacherController.getAllTeachers);

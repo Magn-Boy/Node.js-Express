@@ -1,6 +1,7 @@
-const abiturientService = require('./abiturient.service.js');
+import { Request, Response } from 'express';
+import * as  abiturientService from './abiturient.service.js';
 
-exports.getAllAbiturients = (req, res) => {
+export const getAllAbiturients = (req: Request, res: Response): void => {
     try {
         const abiturients = abiturientService.getAllAbiturients();
         res.status(200).json(abiturients);
@@ -9,7 +10,7 @@ exports.getAllAbiturients = (req, res) => {
       }
 };
 
-exports.getAbiturientById = (req, res) => {
+export const getAbiturientById = (req: Response, res: Response): void => {
     try {
         const abiturientId = req.params.abiturientId;
         const abiturient = abiturientService.getAbiturientById(abiturientId);
@@ -23,7 +24,7 @@ exports.getAbiturientById = (req, res) => {
       }
 };
 
-exports.getAbiturientExams = (req, res) => {
+export const getAbiturientExams = (req: Response, res: Response): void => {
     try {
         const abiturientId = req.params.abiturientId;
         const exams = abiturientService.getAbiturientExams(abiturientId);
@@ -33,7 +34,7 @@ exports.getAbiturientExams = (req, res) => {
       }
 };
 
-exports.createAbiturient = (req, res) => {
+export const createAbiturient = (req: Request, res: Response): void => {
     try {
         const abiturientData = req.body;
         const createdAbiturient = abiturientService.createAbiturient(abiturientData);
@@ -43,7 +44,7 @@ exports.createAbiturient = (req, res) => {
       }
 };
 
-exports.updateAbiturient = (req, res) => {
+export const updateAbiturient = (req: Request, res: Response): void => {
     try {
         const abiturientId = req.params.abiturientId;
         const updatedAbiturientData = req.body;
@@ -54,7 +55,7 @@ exports.updateAbiturient = (req, res) => {
       }
 };
 
-exports.deleteAbiturient = (req, res) => {
+export const deleteAbiturient = (req: Request, res: Response): void => {
     try {
         const abiturientId = req.params.abiturientId;
         abiturientService.deleteAbiturient(abiturientId);

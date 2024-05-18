@@ -1,23 +1,15 @@
 const Exam = require('./exam.model.js');
-const teachers = require('../teacher/teacher.memory.repository.js').teachers;
+const {teachers} = require('../teacher/teacher.memory.repository.js');
 
 const exams = [];
 
-exports.getAllExams = () => {
-  return exams;
-};
+exports.getAllExams = () => exams;
 
-exports.getExamById = (examId) => {
-  return exams.find(exam => exam.id === examId);
-};
+exports.getExamById = (examId) => exams.find(exam => exam.id === examId);
 
-exports.getExamsByAbiturientId = (abiturientId) => {
-    return exams.filter(exam => exam.abiturientId === abiturientId);
-  };
+exports.getExamsByAbiturientId = (abiturientId) => exams.filter(exam => exam.abiturientId === abiturientId);
   
-  exports.getExamsByTeacherId = (teacherId) => {
-    return exams.filter(exam => exam.teacherId === teacherId);
-  };
+  exports.getExamsByTeacherId = (teacherId) => exams.filter(exam => exam.teacherId === teacherId);
 
   exports.getTeachersByExamId = (examId) => {
     const exam = exams.find(exam => exam.id === examId);

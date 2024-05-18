@@ -1,5 +1,6 @@
 const express = require('express');
 const examController = require('./exam.controller.js');
+
 const router = express.Router();
 
 router.get('/', examController.getAllExams);

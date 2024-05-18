@@ -11,7 +11,7 @@ exports.getAllTeachers = (req, res) => {
 
 exports.getTeacherById = (req, res) => {
     try {
-        const teacherId = req.params.teacherId;
+        const {teacherId} = req.params;
         const teacher = teacherService.getTeacherById(teacherId);
         if (!teacher) {
           res.status(404).json({ message: "Teacher not found" });
@@ -25,7 +25,7 @@ exports.getTeacherById = (req, res) => {
 
 exports.getTeacherExams = (req, res) => {
     try {
-        const teacherId = req.params.teacherId;
+        const {teacherId} = req.params;
         const exams = teacherService.getTeacherExams(teacherId);
         res.status(200).json(exams);
       } catch (error) {
@@ -45,7 +45,7 @@ exports.createTeacher = (req, res) => {
 
 exports.updateTeacher = (req, res) => {
     try {
-        const teacherId = req.params.teacherId;
+        const {teacherId} = req.params;
         const updatedTeacherData = req.body;
         const updatedTeacher = teacherService.updateTeacher(teacherId, updatedTeacherData);
         if(updatedTeacher) {
@@ -60,7 +60,7 @@ exports.updateTeacher = (req, res) => {
 
 exports.deleteTeacher = (req, res) => {
     try {
-        const teacherId = req.params.teacherId;
+        const {teacherId} = req.params;
         teacherService.deleteTeacher(teacherId);
         res.status(204).end();
       } catch (error) {

@@ -4,13 +4,9 @@ const teachers = [];
 
 exports.teachers = teachers;
 
-exports.getAllTeachers = () => {
-  return teachers;
-};
+exports.getAllTeachers = () => teachers;
 
-exports.getTeacherById = (teacherId) => {
-  return teachers.find(teacher => teacher.id === teacherId);
-};
+exports.getTeacherById = (teacherId) => teachers.find(teacher => teacher.id === teacherId);
 
 exports.createTeacher = (teacherData) => {
   const newTeacher = new Teacher(

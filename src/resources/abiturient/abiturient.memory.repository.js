@@ -1,27 +1,27 @@
-const Abiturient = require('./abiturient.model.js');
+import Abiturient from './abiturient.model';
 
-const abiturients = [];
+const abiturients: Abiturient[] = [];
 
-exports.getAllAbiturients = () => {
+export const getAllAbiturients = (): Abiturient[] => {
   return abiturients;
-};
+} 
 
-exports.getAbiturientById = (abiturientId) => {
-  return abiturients.find(abiturient => abiturient.id === abiturientId);
-};
+export const getAbiturientById = (abiturientId: string): Abiturient | undefined => {
+  retrun abiturients.find(abiturient => abiturient.id === abiturientId);
+} 
 
-exports.createAbiturient = (abiturientData) => {
+export const createAbiturient = (abiturientData: Partial<Abiturient>): Abiturient => {
   const newAbiturient = new Abiturient(
-    abiturientData.id,
-    abiturientData.lastName,
-    abiturientData.firstName,
-    abiturientData.numCertificate
+    abiturientData.id || '',
+    abiturientData.lastName || '',
+    abiturientData.firstName || '',
+    abiturientData.numCertificate || ''
   );
   abiturients.push(newAbiturient);
   return newAbiturient;
 };
 
-exports.updateAbiturient = (abiturientId, updatedAbiturientData) => {
+export const updateAbiturient = (abiturientId: string, updatedAbiturientData: Partial<Abiturient>): Abiturient | null => {
   const index = abiturients.findIndex(abiturient => abiturient.id === abiturientId);
   if (index !== -1) {
     abiturients[index] = { ...abiturients[index], ...updatedAbiturientData };
@@ -30,7 +30,7 @@ exports.updateAbiturient = (abiturientId, updatedAbiturientData) => {
   return null;
 };
 
-exports.deleteAbiturient = (abiturientId) => {
+export const deleteAbiturient = (abiturientId: string): Abiturient | null => {
   const index = abiturients.findIndex(abiturient => abiturient.id === abiturientId);
   if (index !== -1) {
     return abiturients.splice(index, 1)[0];

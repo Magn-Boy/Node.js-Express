@@ -11,7 +11,7 @@ exports.getAllExams = (req, res) => {
 
 exports.getExamById = (req, res) => {
     try {
-        const examId = req.params.examId;
+        const {examId} = req.params;
         const exam = examService.getExamById(examId);
         if (!exam) {
           res.status(404).json({ message: "Exam not found" });
@@ -25,7 +25,7 @@ exports.getExamById = (req, res) => {
 
 exports.getExamTeachers = (req, res) => {
     try {
-        const examId = req.params.examId;
+        const {examId} = req.params;
         const teachers = examService.getExamTeachers(examId);
         res.status(200).json(teachers);
       } catch (error) {
@@ -45,7 +45,7 @@ exports.createExam = (req, res) => {
 
 exports.updateExam = (req, res) => {
     try {
-        const examId = req.params.examId;
+        const {examId} = req.params;
         const updatedExamData = req.body;
         const updatedExam = examService.updateExam(examId, updatedExamData);
         res.status(200).json(updatedExam);
@@ -56,7 +56,7 @@ exports.updateExam = (req, res) => {
 
 exports.deleteExam = (req, res) => {
     try {
-        const examId = req.params.examId;
+        const {examId} = req.params;
         examService.deleteExam(examId);
         res.status(204).end();
       } catch (error) {

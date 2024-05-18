@@ -5,26 +5,14 @@ const Teacher = require('./teacher.model.js');
 
 const teachers = [];
 
-exports.getAllTeachers = (teacherId) => {
-    return teacherRepository.getAllTeachers();
-  };
+exports.getAllTeachers = (teacherId) => teacherRepository.getAllTeachers();
 
-exports.getTeacherById = (teacherId) => {
-    return teacherRepository.getTeacherById(teacherId);
-};
+exports.getTeacherById = (teacherId) => teacherRepository.getTeacherById(teacherId);
 
-exports.getTeacherExams = (teacherId) => {
-    return examRepository.getExamsByTeacherId(teacherId);
-};
+exports.getTeacherExams = (teacherId) => examRepository.getExamsByTeacherId(teacherId);
 
-exports.createTeacher = (teacherData) => {
-    return teacherRepository.createTeacher(teacherData);
-};
+exports.createTeacher = (teacherData) => teacherRepository.createTeacher(teacherData);
 
-exports.updateTeacher = (teacherId, updatedTeacherData) => {
-    return teacherRepository.updateTeacher(teacherId, updatedTeacherData);
-};
+exports.updateTeacher = (teacherId, updatedTeacherData) => teacherRepository.updateTeacher(teacherId, updatedTeacherData);
 
-exports.deleteTeacher = (teacherId) => {
-    return teacherRepository.deleteTeacher(teacherId);
-};
+exports.deleteTeacher = (teacherId) => teacherRepository.deleteTeacher(teacherId);

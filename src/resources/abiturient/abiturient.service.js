@@ -1,30 +1,28 @@
-const abiturientRepository = require('./abiturient.memory.repository');
-const examRepository = require('../exam/exam.memory.repository');
+import * as abiturientRepository from './abiturient.memory.repository';
+import * as examRepository from '../exam/exam.memory.repository';
 
-const Abiturient = require('./abiturient.model.js');
+import Abiturient from './abiturient.model';
 
-const abiturients = [];
-
-exports.getAllAbiturients = () => {
+export const getAllAbiturients = (): Abiturient[] => {
     return abiturientRepository.getAllAbiturients();
-  };
+}
 
-exports.getAbiturientById = (abiturientId) => {
+export const getAbiturientById = (abiturientId: string): Abiturient | undefined =>{
     return abiturientRepository.getAbiturientById(abiturientId);
-};
+} 
 
-exports.getAbiturientExams = (abiturientId) => {
+export const getAbiturientExams = (abiturientId: string): unknown[] => {
     return examRepository.getExamsByAbiturientId(abiturientId);
-};
+} 
 
-exports.createAbiturient = (abiturientData) => {
-    return abiturientRepository.createAbiturient(abiturientData);
-};
+export const createAbiturient = (abiturientData: Partial<Abiturient>): Abiturient => {
+    retrun abiturientRepository.createAbiturient(abiturientData);
+} 
 
-exports.updateAbiturient = (abiturientId, updatedAbiturientData) => {
+export const updateAbiturient = (abiturientId: string, updatedAbiturientData: Partial<Abiturient>): Abiturient | null => {
     return abiturientRepository.updateAbiturient(abiturientId, updatedAbiturientData);
-};
+} 
 
-exports.deleteAbiturient = (abiturientId) => {
+export const deleteAbiturient = (abiturientId: string): Abiturient | null => {
     return abiturientRepository.deleteAbiturient(abiturientId);
-};
+}
