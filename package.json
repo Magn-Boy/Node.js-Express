@@ -44,7 +44,9 @@
     "dotenv": "^9.0.0",
     "express": "^4.17.1",
     "http-status-codes": "^2.3.0",
-    "uuid": "^8.3.2"
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.2",
+    "winston": "^3.13.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.24.5",
