@@ -6,16 +6,16 @@ class Exam {
     date;
     score;
     login;
-    constructor(id, abiturientId, teacherId, subject, date, score) {
-        this.id = id;
-        this.abiturientId = abiturientId;
-        this.teacherId = teacherId;
-        this.subject = subject;
-        this.date = date;
-        this.score = score;
+    constructor({ id, abiturientId, teacherId, subject, date, score } = {}) {
+        this.id = id || 0;
+        this.abiturientId = abiturientId || 0;
+        this.teacherId = teacherId || 0;
+        this.subject = subject || '';
+        this.date = date || '';
+        this.score = score || 0;
     }
-    static toResponse(user) {
-        const { id, abiturientId, teacherId, subject, date, score, login } = user;
+    static toResponse(exam) {
+        const { id, abiturientId, teacherId, subject, date, score, login } = exam;
         return { id, abiturientId, teacherId, subject, date, score, login };
     }
 }

@@ -9,15 +9,25 @@ class Teacher {
 
   login?: string;
 
-    constructor(id: number, lastName: string, firstName: string, degree: string) {
-      this.id = id;
-      this.lastName = lastName;
-      this.firstName = firstName;
-      this.degree = degree;
-    }
+  constructor({
+    id,
+    lastName,
+    firstName,
+    degree,
+  }: {
+    id?: number;
+    lastName?: string;
+    firstName?: string;
+    degree?: string;
+  } = {}) {
+    this.id = id || 0;
+    this.lastName = lastName || '';
+    this.firstName = firstName || '';
+    this.degree = degree || '';
+  }
 
-    static toResponse(user: Teacher) {
-      const { id, lastName, firstName, degree, login } = user;
+    static toResponse(teacher: Teacher): Teacher {
+      const { id, lastName, firstName, degree, login } = teacher;
       return { id, lastName, firstName, degree, login };
     }
   }

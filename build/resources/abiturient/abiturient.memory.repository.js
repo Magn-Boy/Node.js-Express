@@ -1,29 +1,23 @@
-/* eslint-disable no-unused-expressions */
-import Abiturient from './abiturient.model.js';
 /* eslint-enable no-unused-vars */
-const abiturients = [];
-export const getAllAbiturients = () => abiturients;
-export const getAbiturientById = (abiturientId) => {
-    const foundAbiturient = abiturients.find(abiturient => abiturient.id === abiturientId);
-    return foundAbiturient || null;
+const abiturientData = [];
+export const getAllAbiturients = async () => abiturientData;
+export const getAbiturientById = (abiturientId) => abiturientData.find((abiturient) => abiturient.id === abiturientId);
+export const createAbiturient = (abiturient) => {
+    abiturientData.push(abiturient);
+    return abiturient;
 };
-export const createAbiturient = (abiturientData) => {
-    const newAbiturient = new Abiturient(abiturientData.id || 0, abiturientData.lastName || '', abiturientData.firstName || '', abiturientData.numCertificate || 0);
-    abiturients.push(newAbiturient);
-    return newAbiturient;
-};
-export const updateAbiturient = (abiturientId, updatedAbiturientData) => {
-    const index = abiturients.findIndex(abiturient => abiturient.id === abiturientId);
+export const updateAbiturient = (abiturientId, updatedAbiturient) => {
+    const index = abiturientData.findIndex((abiturient) => abiturient.id === abiturientId);
     if (index !== -1) {
-        abiturients[index] = updatedAbiturientData;
+        abiturientData[index] = updatedAbiturient;
         return true;
     }
     return false;
 };
 export const deleteAbiturient = (abiturientId) => {
-    const index = abiturients.findIndex(abiturient => abiturient.id === abiturientId);
+    const index = abiturientData.findIndex((abiturient) => abiturient.id === abiturientId);
     if (index !== -1) {
-        abiturients.splice(index, 1)[0];
+        abiturientData.splice(index, 1);
         return true;
     }
     return false;

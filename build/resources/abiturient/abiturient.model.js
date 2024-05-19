@@ -4,14 +4,14 @@ class Abiturient {
     firstName;
     numCertificate;
     login;
-    constructor(id, lastName, firstName, numCertificate) {
-        this.id = id;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.numCertificate = numCertificate;
+    constructor({ id, lastName, firstName, numCertificate, } = {}) {
+        this.id = id || 0;
+        this.lastName = lastName || '';
+        this.firstName = firstName || '';
+        this.numCertificate = numCertificate || 0;
     }
-    static toResponse(user) {
-        const { id, lastName, firstName, numCertificate, login } = user;
+    static toResponse(abiturient) {
+        const { id, lastName, firstName, numCertificate, login } = abiturient;
         return { id, lastName, firstName, numCertificate, login };
     }
 }

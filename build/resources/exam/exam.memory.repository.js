@@ -1,56 +1,34 @@
-import Exam from './exam.model.js';
-import { teachers } from '../teacher/teacher.memory.repository.js';
-const exams = [];
-export const getAllExams = () => exams;
-export const getExamById = (examId) => exams.find(e => e.id === examId);
-export const getExamsByAbiturientId = (abiturientId) => exams.filter(e => e.abiturientId === abiturientId);
-export const getExamsByTeacherId = (teacherId) => exams.filter(e => e.teacherId === teacherId);
-export const getTeachersByExamId = (examId) => {
-    const exam = exams.find(e => e.id === examId);
+import { teacherData } from '../teacher/teacher.memory.repository';
+const examsData = [];
+export const getAllExams = async () => examsData;
+export const getExamById = async (examId) => examsData.find((exam) => exam.id === examId);
+export const getExamsByAbiturientId = async (abiturientId) => examsData.filter((exam) => exam.abiturientId === abiturientId);
+export const getExamsByTeacherId = async (teacherId) => examsData.filter((exam) => exam.teacherId === teacherId);
+export const getTeachersByExamId = async (examId) => {
+    const exam = examsData.find((exam) => exam.teacherId === examId);
     if (!exam) {
         return null;
     }
-    return teachers.filter(teacher => teacher.id === exam.teacherId);
+    return teacherData.filter(teacher => teacher.id === exam.teacherId);
 };
-export const createExam = (examData) => {
-    const newExam = new Exam(examData.id || 0, examData.abiturientId || 0, examData.teacherId || 0, examData.subject || '', examData.date || '', examData.score || 0);
-    exams.push(newExam);
-    return newExam;
+export const createExam = async (exam) => {
+    examsData.push(exam);
+    return exam;
 };
-export const updateExam = (examId, updatedExamData) => {
-    const index = exams.findIndex(e => e.id === examId);
+export const updateExam = async (examId, updatedExam) => {
+    const index = examsData.findIndex((exam) => exam.id === examId);
     if (index !== -1) {
-        exams[index] = { ...exams[index], ...updatedExamData };
+        examsData[index] = updatedExam;
         return true;
     }
     return false;
 };
-export const deleteExam = (examId) => {
-    const index = exams.findIndex(e => e.id === examId);
+export const deleteExam = async (examId) => {
+    const index = examsData.findIndex((exam) => exam.id === examId);
     if (index !== -1) {
-        exams.splice(index, 1);
+        examsData.splice(index, 1);
         return true;
     }
     return false;
-};
-export const updateExamsAbiturientIdToNull = (abiturientId) => {
-    exams.forEach(exam => {
-        if (exam.abiturientId === abiturientId) {
-            exam = { ...exam, abiturientId: null };
-            if (!exam.teacherId) {
-                deleteExam(exam.id);
-            }
-        }
-    });
-};
-export const updateExamsTeacherIdToNull = (teacherId) => {
-    exams.forEach(exam => {
-        if (exam.teacherId === teacherId) {
-            exam = { ...exam, teacherId: null };
-            if (!exam.abiturientId) {
-                deleteExam(exam.id);
-            }
-        }
-    });
 };
 //# sourceMappingURL=exam.memory.repository.js.map

@@ -9,15 +9,25 @@ class Abiturient {
 
   login?: string;
 
-    constructor(id: number, lastName: string, firstName: string, numCertificate: number) {
-      this.id = id;
-      this.lastName = lastName;
-      this.firstName = firstName;
-      this.numCertificate = numCertificate;
-    }
+  constructor({
+    id,
+    lastName,
+    firstName,
+    numCertificate,
+  }: {
+    id?: number;
+    lastName?: string;
+    firstName?: string;
+    numCertificate?: number;
+  } = {}) {
+    this.id = id || 0;
+    this.lastName = lastName || '';
+    this.firstName = firstName || '';
+    this.numCertificate = numCertificate || 0;
+  }
 
-    static toResponse(user: Abiturient): Partial<Abiturient> {
-      const { id, lastName, firstName, numCertificate, login } = user;
+    static toResponse(abiturient: Abiturient): Abiturient {
+      const { id, lastName, firstName, numCertificate, login } = abiturient;
       return { id, lastName, firstName, numCertificate, login };
     }
   }

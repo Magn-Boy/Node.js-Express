@@ -2,39 +2,30 @@
 import Abiturient from './abiturient.model';
 /* eslint-enable no-unused-vars */
 
-const abiturients: Abiturient[] = [];
+const abiturientData: Abiturient[] = [];
 
-export const getAllAbiturients = (): Abiturient[] => abiturients;
+export const getAllAbiturients = async (): Promise<Abiturient[]> => abiturientData;
 
-export const getAbiturientById = (abiturientId: number): Abiturient | null => {
-  const foundAbiturient = abiturients.find(abiturient => abiturient.id === abiturientId);
-  return foundAbiturient || null;
+export const getAbiturientById = (abiturientId: number) => abiturientData.find((abiturient) => abiturient.id === abiturientId)
+
+export const createAbiturient = (abiturient: Abiturient) => {
+  abiturientData.push(abiturient);
+  return abiturient;
 };
 
-export const createAbiturient = (abiturientData: Partial<Abiturient>): Abiturient => {
-  const newAbiturient = new Abiturient(
-    abiturientData.id || 0,
-    abiturientData.lastName || '',
-    abiturientData.firstName || '',
-    abiturientData.numCertificate || 0
-  );
-  abiturients.push(newAbiturient);
-  return newAbiturient;
-};
-
-export const updateAbiturient = (abiturientId: number, updatedAbiturientData: Abiturient): boolean => {
-  const index = abiturients.findIndex(abiturient => abiturient.id === abiturientId);
+export const updateAbiturient = (abiturientId: number, updatedAbiturient: Abiturient) => {
+  const index = abiturientData.findIndex((abiturient: Abiturient) => abiturient.id === abiturientId);
   if (index !== -1) {
-    abiturients[index] = updatedAbiturientData;
+    abiturientData[index] = updatedAbiturient;
     return true;
   }
   return false;
 };
 
-export const deleteAbiturient = (abiturientId: number): boolean => {
-  const index = abiturients.findIndex(abiturient => abiturient.id === abiturientId);
+export const deleteAbiturient = (abiturientId: number) => {
+  const index = abiturientData.findIndex((abiturient: Abiturient) => abiturient.id === abiturientId);
   if (index !== -1) {
-    abiturients.splice(index, 1)[0];
+    abiturientData.splice(index, 1);
     return true;
   }
   return false;
