@@ -1,4 +1,6 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
+import errorHandler from '../src/middleware/errorhandler';
+import requestLogger from 'middleware/requestlogger';
 
 import abiturientRouter from './resources/abiturient/abiturient.router';
 import examRouter from './resources/exam/exam.router';
@@ -7,6 +9,7 @@ import teacherRouter from './resources/teacher/teacher.router';
 const app: Express = express();
 
 app.use(express.json());
+app.use(requestLogger);
 
 app.use('/', (req: Request, res: Response, next: NextFunction) => {
   if (req.originalUrl === '/') {
@@ -19,5 +22,7 @@ app.use('/', (req: Request, res: Response, next: NextFunction) => {
 app.use('/abiturients', abiturientRouter);
 app.use('/exams', examRouter);
 app.use('/teachers', teacherRouter);
+
+app.use(errorHandler);
 
 export default app;
