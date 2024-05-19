@@ -1,6 +1,6 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
-import errorHandler from '../src/middleware/errorhandler';
-import requestLogger from 'middleware/requestlogger';
+import errorHandler from './middleware/errorhandler';
+import requestLogger from './middleware/requestlogger';
 
 import abiturientRouter from './resources/abiturient/abiturient.router';
 import examRouter from './resources/exam/exam.router';

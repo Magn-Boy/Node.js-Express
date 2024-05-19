@@ -1,0 +1,1 @@
+{"level":"error","message":"Unhandled Rejection: Oops! unhandledRejection","service":"user-service","stack":"Error: Oops! unhandledRejection\n    at Timeout._onTimeout (file:///home/secure/Proga/Node.js-Express/build/server.js:13:20)\n    at listOnTimeout (node:internal/timers:569:17)\n    at process.processTimers (node:internal/timers:512:7)","timestamp":"2024-05-19 23:54:52"}

@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import * as examService from './exam.service';
-import Exam from './exam.model';
-import Teacher from '../teacher/teacher.model';
+import * as examService from './exam.service.js';
+import Exam from './exam.model.js';
+import Teacher from '../teacher/teacher.model.js';
 const router = Router();
 router.route('/').get(async (_req, res) => {
     const exams = await examService.getAllExams();
@@ -56,7 +56,7 @@ router.route('/:examId/teachers')
     const { examId } = req.params;
     const teacher = await examService.getExamTeachers(parseInt(examId, 10));
     if (teacher) {
-        res.json(teacher.map((teacher) => Teacher.toResponse(teacher)));
+        res.json(teacher.map((vilka) => Teacher.toResponse(vilka)));
     }
     else {
         res.status(StatusCodes.NOT_FOUND).json({ code: 'NOT_FOUND', msg: 'Abiturient not found' });

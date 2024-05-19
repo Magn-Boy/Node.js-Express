@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import Teacher from './teacher.model';
-import * as teacherService from './teacher.service';
-import * as examRepository from '../exam/exam.memory.repository';
-import Exam from '../exam/exam.model';
+import Teacher from './teacher.model.js';
+import * as teacherService from './teacher.service.js';
+import * as examRepository from '../exam/exam.memory.repository.js';
+import Exam from '../exam/exam.model.js';
 const router = Router();
 router.route('/')
     .get(async (_req, res) => {
@@ -58,7 +58,7 @@ router.route('/:teacherId/exams')
     const { teacherId } = req.params;
     const exam = await examRepository.getExamsByTeacherId(parseInt(teacherId, 10));
     if (exam) {
-        res.json(exam.map((exam) => Exam.toResponse(exam)));
+        res.json(exam.map((pizza) => Exam.toResponse(pizza)));
     }
     else {
         res.status(StatusCodes.NOT_FOUND).json({ code: 'NOT_FOUND', msg: 'Teacher not found' });

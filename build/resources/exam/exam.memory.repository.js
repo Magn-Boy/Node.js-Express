@@ -1,4 +1,4 @@
-import { teacherData } from '../teacher/teacher.memory.repository';
+import { teacherData } from '../teacher/teacher.memory.repository.js';
 const examsData = [];
 export const getAllExams = async () => examsData;
 export const getExamById = async (examId) => examsData.find((exam) => exam.id === examId);

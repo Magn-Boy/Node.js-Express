@@ -1,5 +1,5 @@
-import Exam from './exam.model';
-import * as examRepository from './exam.memory.repository';
+import Exam from './exam.model.js';
+import * as examRepository from './exam.memory.repository.js';
 export const getAllExams = () => examRepository.getAllExams();
 export const getExamById = (examId) => examRepository.getExamById(examId);
 export const getExamTeachers = (examId) => examRepository.getTeachersByExamId(examId);

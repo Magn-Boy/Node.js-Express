@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import * as AbiturientService from './abiturient.service';
-import Abiturient from './abiturient.model';
-import Exam from '../exam/exam.model';
+import * as AbiturientService from './abiturient.service.js';
+import Abiturient from './abiturient.model.js';
+import Exam from '../exam/exam.model.js';
 const router = Router();
 router.route('/').get(async (_req, res) => {
     const abiturients = await AbiturientService.getAllAbiturients();
