@@ -1,5 +1,5 @@
 import express from 'express';
-import * as teacherController from './teacher.controller';
+import * as teacherController from './teacher.controller.js';
 const router = express.Router();
 router.get('/', teacherController.getAllTeachers);
 router.get('/:teacherId', teacherController.getTeacherById);

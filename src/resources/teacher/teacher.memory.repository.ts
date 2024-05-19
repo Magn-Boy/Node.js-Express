@@ -3,9 +3,9 @@ import Teacher from './teacher.model';
 
 export const teachers: Teacher[] = [];
 
-export const getAllTeachers = (): Teacher[] => teachers
+export const getAllTeachers = (): Teacher[] => { return teachers; } 
 
-export const getTeacherById = (teacherId: number): Teacher | undefined => teachers.find(teacher => teacher.id === teacherId)
+export const getTeacherById = (teacherId: number): Teacher | undefined => { return teachers.find(teacher => teacher.id === teacherId) }
 
 export const createTeacher = (teacherData: Partial<Teacher>): Teacher => {
   const newTeacher = new Teacher(

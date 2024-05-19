@@ -1,4 +1,4 @@
-import * as examService from './exam.service';
+import * as examService from './exam.service.js';
 export const getAllExams = (_req, res) => {
     try {
         const exams = examService.getAllExams();

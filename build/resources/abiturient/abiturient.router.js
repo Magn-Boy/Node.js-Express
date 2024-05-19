@@ -1,11 +1,11 @@
 import express from 'express';
-import { getAllAbiturients, getAbiturientExams, getAbiturientById, createAbiturient, updateAbiturient, deleteAbiturient } from './abiturient.controller';
+import * as abiturientController from './abiturient.controller.js';
 const router = express.Router();
-router.get('/', getAllAbiturients);
-router.get('/:abiturientId', getAbiturientById);
-router.get('/:abiturientId/exams', getAbiturientExams);
-router.post('/', createAbiturient);
-router.put('/:abiturientId', updateAbiturient);
-router.delete('/:abiturientId', deleteAbiturient);
+router.get('/', abiturientController.getAllAbiturients);
+router.get('/:abiturientId', abiturientController.getAbiturientById);
+router.get('/:abiturientId/exams', abiturientController.getAbiturientExams);
+router.post('/', abiturientController.createAbiturient);
+router.put('/:abiturientId', abiturientController.updateAbiturient);
+router.delete('/:abiturientId', abiturientController.deleteAbiturient);
 export default router;
 //# sourceMappingURL=abiturient.router.js.map

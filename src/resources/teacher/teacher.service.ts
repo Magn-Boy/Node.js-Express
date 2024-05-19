@@ -1,4 +1,4 @@
-import * as  teacherRepository from './teacher.memory.repository';
+import * as teacherRepository from './teacher.memory.repository';
 import * as examRepository from '../exam/exam.memory.repository';
 
 import Teacher from './teacher.model';

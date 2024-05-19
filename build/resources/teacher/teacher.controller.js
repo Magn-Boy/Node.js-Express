@@ -1,4 +1,4 @@
-import * as teacherService from './teacher.service';
+import * as teacherService from './teacher.service.js';
 export const getAllTeachers = (_req, res) => {
     try {
         const teachers = teacherService.getAllTeachers();

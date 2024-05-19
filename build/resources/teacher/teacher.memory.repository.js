@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import Teacher from './teacher.model';
+import Teacher from './teacher.model.js';
 export const teachers = [];
 export const getAllTeachers = () => teachers;
 export const getTeacherById = (teacherId) => teachers.find(teacher => teacher.id === teacherId);

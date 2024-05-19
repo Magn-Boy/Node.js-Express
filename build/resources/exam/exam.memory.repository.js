@@ -1,5 +1,5 @@
-import Exam from './exam.model';
-import { teachers } from '../teacher/teacher.memory.repository';
+import Exam from './exam.model.js';
+import { teachers } from '../teacher/teacher.memory.repository.js';
 const exams = [];
 export const getAllExams = () => exams;
 export const getExamById = (examId) => exams.find(e => e.id === examId);

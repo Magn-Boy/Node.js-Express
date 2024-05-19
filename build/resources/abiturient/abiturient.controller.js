@@ -1,4 +1,4 @@
-import * as abiturientService from './abiturient.service';
+import * as abiturientService from './abiturient.service.js';
 export const getAllAbiturients = (_req, res) => {
     try {
         const abiturients = abiturientService.getAllAbiturients();

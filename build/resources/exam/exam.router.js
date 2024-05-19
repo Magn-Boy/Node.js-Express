@@ -1,5 +1,5 @@
 import express from 'express';
-import * as examController from './exam.controller';
+import * as examController from './exam.controller.js';
 const router = express.Router();
 router.get('/', examController.getAllExams);
 router.get('/:examId', examController.getExamById);

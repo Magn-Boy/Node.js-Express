@@ -1,5 +1,5 @@
-import * as teacherRepository from './teacher.memory.repository';
-import * as examRepository from '../exam/exam.memory.repository';
+import * as teacherRepository from './teacher.memory.repository.js';
+import * as examRepository from '../exam/exam.memory.repository.js';
 export const getAllTeachers = () => teacherRepository.getAllTeachers();
 export const getTeacherById = (teacherId) => teacherRepository.getTeacherById(teacherId);
 export const getTeacherExams = (teacherId) => examRepository.getExamsByTeacherId(teacherId);

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import Abiturient from './abiturient.model';
+import Abiturient from './abiturient.model.js';
 /* eslint-enable no-unused-vars */
 const abiturients = [];
 export const getAllAbiturients = () => abiturients;

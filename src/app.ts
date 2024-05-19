@@ -1,4 +1,4 @@
-import express, {Request, Response} from 'express';
+import express, { Request, Response } from 'express';
 
 import abiturientRouter from './resources/abiturient/abiturient.router';
 import examRouter from './resources/exam/exam.router';

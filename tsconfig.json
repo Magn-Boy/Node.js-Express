@@ -6,7 +6,7 @@
       "sourceMap": true,
       "baseUrl": "/home/secure/Proga/Node.js-Express/src",
       "outDir": "/home/secure/Proga/Node.js-Express/build",
-      "rootDir": "./src",
+      "rootDir": "/home/secure/Proga/Node.js-Express/src",
       "strict": true,
       "noImplicitAny": true,
       "noUnusedLocals": true,
