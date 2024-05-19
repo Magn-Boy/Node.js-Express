@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import Teacher from './teacher.model';
 
 export const teachers: Teacher[] = [];
@@ -34,3 +35,4 @@ export const deleteTeacher = (teacherId: number): boolean => {
   }
   return false;
 };
+/* eslint-enable no-unused-expressions */

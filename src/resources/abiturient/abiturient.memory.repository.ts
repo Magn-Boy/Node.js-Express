@@ -1,5 +1,6 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-expressions */
 import Abiturient from './abiturient.model';
+/* eslint-enable no-unused-vars */
 
 const abiturients: Abiturient[] = [];
 

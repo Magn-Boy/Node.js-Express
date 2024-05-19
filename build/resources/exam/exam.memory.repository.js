@@ -20,7 +20,7 @@ export const createExam = (examData) => {
 export const updateExam = (examId, updatedExamData) => {
     const index = exams.findIndex(e => e.id === examId);
     if (index !== -1) {
-        exams[index] = { ...exams[index], ...updatedExamData }; // Создаем новый объект, копируя все свойства из существующего и обновленного экземпляра
+        exams[index] = { ...exams[index], ...updatedExamData };
         return true;
     }
     return false;
@@ -36,7 +36,7 @@ export const deleteExam = (examId) => {
 export const updateExamsAbiturientIdToNull = (abiturientId) => {
     exams.forEach(exam => {
         if (exam.abiturientId === abiturientId) {
-            exam = { ...exam, abiturientId: null }; // Создаем новый объект с обновленным свойством abiturientId
+            exam = { ...exam, abiturientId: null };
             if (!exam.teacherId) {
                 deleteExam(exam.id);
             }
@@ -46,7 +46,7 @@ export const updateExamsAbiturientIdToNull = (abiturientId) => {
 export const updateExamsTeacherIdToNull = (teacherId) => {
     exams.forEach(exam => {
         if (exam.teacherId === teacherId) {
-            exam = { ...exam, teacherId: null }; // Создаем новый объект с обновленным свойством teacherId
+            exam = { ...exam, teacherId: null };
             if (!exam.abiturientId) {
                 deleteExam(exam.id);
             }

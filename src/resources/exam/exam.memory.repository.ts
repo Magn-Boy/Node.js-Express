@@ -35,7 +35,7 @@ export const createExam = (examData: Partial<Exam>): Exam => {
 export const updateExam = (examId: number, updatedExamData: Exam): boolean => {
   const index = exams.findIndex(e => e.id === examId);
   if (index !== -1) {
-    exams[index] = { ...exams[index], ...updatedExamData }; // Создаем новый объект, копируя все свойства из существующего и обновленного экземпляра
+    exams[index] = { ...exams[index], ...updatedExamData }; 
     return true;
   }
   return false;
@@ -53,7 +53,7 @@ export const deleteExam = (examId: number): boolean => {
 export const updateExamsAbiturientIdToNull = (abiturientId: number): void => {
   exams.forEach(exam => {
     if (exam.abiturientId === abiturientId) {
-      exam = { ...exam, abiturientId: null }; // Создаем новый объект с обновленным свойством abiturientId
+      exam = { ...exam, abiturientId: null }; 
       if (!exam.teacherId) {
         deleteExam(exam.id);
       }
@@ -64,7 +64,7 @@ export const updateExamsAbiturientIdToNull = (abiturientId: number): void => {
 export const updateExamsTeacherIdToNull = (teacherId: number): void => {
   exams.forEach(exam => {
     if (exam.teacherId === teacherId) {
-      exam = { ...exam, teacherId: null }; // Создаем новый объект с обновленным свойством teacherId
+      exam = { ...exam, teacherId: null }; 
       if (!exam.abiturientId) {
         deleteExam(exam.id);
       }

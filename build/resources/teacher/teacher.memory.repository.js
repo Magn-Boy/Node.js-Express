@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import Teacher from './teacher.model';
 export const teachers = [];
 export const getAllTeachers = () => teachers;
@@ -23,4 +24,5 @@ export const deleteTeacher = (teacherId) => {
     }
     return false;
 };
+/* eslint-enable no-unused-expressions */ 
 //# sourceMappingURL=teacher.memory.repository.js.map
